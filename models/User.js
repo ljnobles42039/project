@@ -17,7 +17,23 @@ const UserSchema = new mongoose.Schema ({  //2 Crete Schema
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    img: {
+        type: String,
+        default: 'https://icon-library.net/images/profile-png-icon/profile-png-icon-15.jpg'
+    },
+    sport: {
+        type: String,
+        enum : ['Basketball', 'Soccer', 'Futball', 'Tenis', 'Voleyball']
+    },
+    sport2: {
+        type: String,
+        enum : ['Basketball', 'Soccer', 'Futball', 'Tenis', 'Voleyball']
+    },
+    sport3: {
+        type: String,
+        enum : ['Basketball', 'Soccer', 'Futball', 'Tenis', 'Voleyball']
+    },
 });
 
 const User = mongoose.model('User', UserSchema); // create const model from the Schema, and UserSchenma

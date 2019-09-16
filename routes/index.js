@@ -16,6 +16,9 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
   })
 );
 
+//profile
+router.get('/profile', forwardAuthenticated, (req, res) => res.render('profile'));
+
 module.exports = router;
 
 
