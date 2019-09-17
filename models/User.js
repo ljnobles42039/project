@@ -17,6 +17,22 @@ const UserSchema = new mongoose.Schema ({  //2 Crete Schema
     date: {
         type: Date,
         default: Date.now
+    },
+    img: {
+        type: String,
+        default: 'https://peoplepng.com/wp-content/uploads/2019/04/profile-pic-png-3.png'
+    },
+    sport1: {
+        type: String,
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+    },
+    sport2: {
+        type: String,
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+    },
+    sport3: {
+        type: String,
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
     }
 });
 

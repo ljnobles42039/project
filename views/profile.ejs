@@ -1,21 +1,41 @@
-<div>
-    <img src="" alt="Image profile" width="400px" height="300px">
-    <h2 id="user-name">Jon Doe</h2>
-    <div>
-        <h5>Sports</h5>
-        <ul>
-            <li>Soccer</li>
-            <li>Basketball</li>
-        </ul>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            Featured
+<section class="about-me-section p-3 p-lg-5 theme-bg-light">
+    <div class="container">
+        <div class="profile-teaser media flex-column flex-lg-row">
+            <img class="profile-image rounded-circle mx-auto mb-3 ml-lg-5 mr-5"
+                src="https://peoplepng.com/wp-content/uploads/2019/04/profile-pic-png-3.png" alt="Image profile"
+                width="200px" height="240px">
+            <div class="media-body">
+                <h2 class="name font-weight-bold mb-1"><%= user.name %></h2>
+                <div class="bio mb-4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sapiente odit, culpa perferendis
+                        sunt corrupti quia inventore aperiam consequuntur ipsum eveniet ipsam architecto consequatur
+                        maiores reprehenderit est deserunt excepturi consectetur.  <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i></p>
+                </div>
+                <div class="tagline mb-3">
+                    <h5>Sports</h5>
+                    <ul class="mb4">
+                        <li>Soccer</li>
+                        <li>Basketball</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="card-body post">
-            <img src="" alt="img-post" id="img-post">
-            <p class="card-text" id="desc-post">Here it goes the content that </p>
-            <a href="#" class="btn btn-info">Edit</a>
+    </div>
+</section>
+
+<section class="overview-section p-3 p-lg-5">
+    <div class="container">
+        <div class="section-intro">
+            <div class="card">
+                <div class="card-header">
+                    Posts
+                </div>
+                <div class="card-body post">
+                    <p class="card-text" id="desc-post">Here it goes the content that </p>
+                    <a href="#" class="btn btn-info"><i class="fas fa-paperclip"></i> Foto/Video</a>
+                    <a href="#" class="btn btn-info">Edit</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>

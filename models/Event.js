@@ -5,11 +5,14 @@ const eventSchema = new Schema(
       title: String,
       description: String,
       date: Date,
-      location: {
-          ref: 'User',
-          type: Schema.Types.ObjectId
-      }
-    
+      sport: {
+        type: String,
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+    }
+      // location: {
+      //     ref: ,
+      //     type: Schema.Types.ObjectId
+      // }
     },
   {
     timestamps: {

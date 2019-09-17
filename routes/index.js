@@ -17,7 +17,11 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
 );
 
 //profile
-router.get('/profile', ensureAuthenticated, (req, res) => res.render('profile'));
+router.get('/profile', ensureAuthenticated, (req, res) =>
+res.render('profile', {
+  user: req.user
+})
+);
 
 module.exports = router;
 
