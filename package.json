@@ -20,9 +20,15 @@
     "favicon": "0.0.2",
     "logger": "0.0.1",
     "mongoose": "^5.7.1",
+    "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+<<<<<<< HEAD
     "path": "^0.12.7"
+=======
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+>>>>>>> d4088067a4f2b1205b30a84d02b2f053c60739ed
   },
   "devDependencies": {
     "nodemon": "^1.19.2"

@@ -25,10 +25,8 @@ mongoose.connect(db, { useNewUrlParser: true })  //db is created  //9
 
 // EJS
 app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "views"));
-app.use(expressLayouts);
-app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
