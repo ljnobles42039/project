@@ -63,12 +63,12 @@ app.use(function (req, res, next) {
 // Routes
 const index = require("./routes/index");
 const users = require("./routes/users");
-//const profile = require("./routes/profile");
-//const events = require("./routes/event");
+// const profile = require("./routes/profile");
+// const events = require("./routes/event");
 app.use("/", index);
 app.use("/users", users);
-//app.use("/profile", profile);
-//app.use("/eventr", events);
+// app.use("/profile", profile);
+// app.use("/eventr", events);
 
 const PORT = process.env.PORT || 3000;
 
