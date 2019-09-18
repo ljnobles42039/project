@@ -26,6 +26,7 @@ mongoose.connect(db, {
   .catch(err => consoloe.log(err)) //11 now to users models
 
 // EJS
+app.use(expressLayouts)
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
