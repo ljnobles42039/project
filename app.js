@@ -4,6 +4,10 @@ const mongoose = require('mongoose')
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
+const logger       = require('morgan');
+const path         = require('path');
+const favicon      = require('serve-favicon');
+
 
 
 //Need to initialize ejs  //5
@@ -23,6 +27,8 @@ mongoose.connect(db, { useNewUrlParser: true })  //db is created  //9
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
