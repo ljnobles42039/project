@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function createCalendar(date, side) {
      var currentDate = date;
-     var startDate = new Date(currentDate.getFullYear(), cugrrentDate.getMonth(), 1);
+     var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
   
      var monthTitle = document.getElementById("month-name");
      var monthName = currentDate.toLocaleString("en-US", {
