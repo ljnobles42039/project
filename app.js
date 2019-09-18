@@ -24,6 +24,7 @@ mongoose.connect(db, { useNewUrlParser: true })  //db is created  //9
 .catch(err => consoloe.log(err))  //11 now to users models
 
 // EJS
+app.use(expressLayouts)
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
@@ -57,13 +58,13 @@ app.use(function(req, res, next) {
 
 // Routes
 const index = require("./routes/index");
-const auth = require("./routes/auth");
-const profile = require("./routes/profile");
-const events = require("./routes/event");
+const users = require("./routes/users");
+// const profile = require("./routes/profile");
+// const events = require("./routes/event");
 app.use("/", index);
-app.use("/auth", auth);
-app.use("/profile", profile);
-app.use("/eventr", events);
+app.use("/users", users);
+// app.use("/profile", profile);
+// app.use("/eventr", events);
 
 const PORT = process.env.PORT || 3000;
 
