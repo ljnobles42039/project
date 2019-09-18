@@ -1,10 +1,12 @@
-
 //Dashboard and home screen routes
 
 //These express,router are used to signify that we are going to use the express router
-const express = require('express');  
+const express = require('express');
 const router = express.Router();
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const {
+  ensureAuthenticated,
+  forwardAuthenticated
+} = require('../config/auth');
 
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
@@ -16,13 +18,15 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
   })
 );
 
-//profile
+//Profile
 router.get('/profile', ensureAuthenticated, (req, res) =>
-res.render('profile', {
-  user: req.user
-})
+  res.render('profile', {
+    user: req.user
+  })
 );
 
+//Edit profile
+router.get('/edit/profile'), ensureAuthenticated, (req, res) => res.render('/edit-profile')
+router.post('edit/profile:id')
+
 module.exports = router;
-
-

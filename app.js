@@ -1,5 +1,5 @@
-const express = require('express')//1
-const expressLayouts = require('express-ejs-layouts')  //need to set layouts//2
+const express = require('express') //1
+const expressLayouts = require('express-ejs-layouts') //need to set layouts//2
 const mongoose = require('mongoose')
 const passport = require('passport');
 const session = require('express-session');
@@ -16,12 +16,14 @@ const app = express();
 require('./config/passport')(passport);
 
 //DB config
-const db = require('./config/keys').MongoURI  //8 - created config file or can use an .env
+const db = require('./config/keys').MongoURI //8 - created config file or can use an .env
 
 //Connect ot Mongo
-mongoose.connect(db, { useNewUrlParser: true })  //db is created  //9
-.then(() => console.log(('MongoDB Connected....'))) //10
-.catch(err => consoloe.log(err))  //11 now to users models
+mongoose.connect(db, {
+    useNewUrlParser: true
+  }) //db is created  //9
+  .then(() => console.log(('MongoDB Connected....'))) //10
+  .catch(err => consoloe.log(err)) //11 now to users models
 
 // EJS
 app.set('view engine', 'ejs');
@@ -29,7 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // Express body parser
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 
 // Express session
 app.use(
@@ -48,7 +52,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Global variables
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
@@ -57,15 +61,14 @@ app.use(function(req, res, next) {
 
 // Routes
 const index = require("./routes/index");
-const auth = require("./routes/auth");
-const profile = require("./routes/profile");
-const events = require("./routes/event");
+const users = require("./routes/users");
+//const profile = require("./routes/profile");
+//const events = require("./routes/event");
 app.use("/", index);
-app.use("/auth", auth);
-app.use("/profile", profile);
-app.use("/eventr", events);
+app.use("/users", users);
+//app.use("/profile", profile);
+//app.use("/eventr", events);
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
