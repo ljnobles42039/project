@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
+const favicon = require("serve-favicon");
+const logger = require("morgan");
+const path = require("path");
 
 
 //Need to initialize ejs  //5
@@ -21,8 +24,11 @@ mongoose.connect(db, { useNewUrlParser: true })  //db is created  //9
 .catch(err => consoloe.log(err))  //11 now to users models
 
 // EJS
-app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.use(expressLayouts);
+app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
@@ -52,8 +58,14 @@ app.use(function(req, res, next) {
 });
 
 // Routes
-app.use('/', require('./routes/index.js'));
-app.use('/users', require('./routes/users.js'));
+const index = require("./routes/index");
+const auth = require("./routes/auth");
+const profile = require("./routes/profile");
+const events = require("./routes/event");
+app.use("/", index);
+app.use("/auth", auth);
+app.use("/profile", profile);
+app.use("/eventr", events);
 
 const PORT = process.env.PORT || 3000;
 
