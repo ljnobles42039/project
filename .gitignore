@@ -1,13 +1,3 @@
 .env 
 node_modules
-
-User.find().then(user => {
-  let id = user[0]._id;
-    console.log(id)
-    User.findByIdAndUpdate(id, { status: "Active" }, () => {
-      let userEmail = user[0].email;
-      let userId = user[0]._id;
-      console.log
-      res.render("login", { userEmail, userId });
-    });
-  });
+config/keys.js

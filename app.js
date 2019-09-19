@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express') //1
 const expressLayouts = require('express-ejs-layouts') //need to set layouts//2
 const mongoose = require('mongoose')

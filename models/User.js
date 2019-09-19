@@ -1,8 +1,8 @@
 const mongoose = require('mongoose') //1  Bring in Mongoose
 
 
-const UserSchema = new mongoose.Schema ({  //2 Crete Schema
-    name: {                                 //3Pass in objects with all the fields
+const UserSchema = new mongoose.Schema({ //2 Crete Schema
+    name: { //3Pass in objects with all the fields
         type: String,
         required: true
     },
@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema ({  //2 Crete Schema
         type: String,
         default: 'https://peoplepng.com/wp-content/uploads/2019/04/profile-pic-png-3.png'
     },
+    description: String,
     sport1: {
         type: String,
         enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
