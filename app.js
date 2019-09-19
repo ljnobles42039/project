@@ -64,11 +64,11 @@ app.use(function (req, res, next) {
 const index = require("./routes/index");
 const users = require("./routes/users");
 // const profile = require("./routes/profile");
-// const events = require("./routes/event");
+const property = require("./routes/property");
 app.use("/", index);
 app.use("/users", users);
 // app.use("/profile", profile);
-// app.use("/eventr", events);
+ app.use("/properties", property);
 
 const PORT = process.env.PORT || 3000;
 

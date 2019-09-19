@@ -5,6 +5,7 @@ const eventSchema = new Schema(
       title: String,
       description: String,
       date: Date,
+      time: String,
       sport: {
         type: String,
         enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']

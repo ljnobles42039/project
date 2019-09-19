@@ -1,0 +1,74 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Event</h1>
+      
+        <form action="/users/login" method="POST">
+          <div class="form-group">
+            <label for="email">Event Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="form-control"
+              placeholder="Event Title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="lead mt-4">
+          No Account? <a href="/users/register">Register</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="uk-margin">
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: user"></span>
+      <input name="username" class="uk-input" type="text" placeholder="Enter your name">
+    </div>
+  </div>
+  title: String,
+  description: String,
+  date: Date,
+  time: String,
+  sport:
+
+    map.addControl(new mapboxgl.NavigationControl());
+  
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const center = [
+          position.coords.longitude,
+          position.coords.latitude
+        ];
+        map.setZoom(1).setCenter(center);
+  
+      });
+    }
+    axios.get("http://localhost:3000/properties/json")
+      .then(res => {
+  
+        properties = res.data.properties;
+        properties.forEach(prop => {
+  
+          let popup = new mapboxgl.Popup().setText(prop.title)
+          new mapboxgl.Marker().setLngLat(prop.location.coordinates).setPopup(popup).addTo(map)
+        })
+      })
+  
+  
+  
+  </script>

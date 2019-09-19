@@ -14,6 +14,11 @@ const UserSchema = new mongoose.Schema ({  //2 Crete Schema
         type: String,
         required: true
     },
+    status: {
+        type: String,
+        enum: ["Pending Confirmation", "Active"],
+        default: "Pending Confirmation"
+    },
     date: {
         type: Date,
         default: Date.now

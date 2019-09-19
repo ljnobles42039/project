@@ -35,6 +35,10 @@ h3, h4, h5 {
   padding-right: 15%;
   overflow: hidden; }
 
+ .validate {
+   color: black
+ } 
+
 .event-mark {
   width: 5px;
   height: 5px;
@@ -63,7 +67,7 @@ h3, h4, h5 {
   padding: 0 5px 0 5px; }
 
 .addForm input {
-  color: #fff; }
+  color: black; }
 
 .addForm .row {
   padding-left: 0.75rem;
