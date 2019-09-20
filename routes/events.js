@@ -3,10 +3,7 @@ const router = express.Router();
 const Event = require("../models/Event");
 const User = require("../models/User")
 const uploader = require("../helpers/multer");
-const {
-  ensureAuthenticated,
-  forwardAuthenticated
-} = require('../config/auth');
+const { ensureAuthenticated } = require('../config/auth');
 
 
 //All events
