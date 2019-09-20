@@ -1,0 +1,19 @@
+
+<h2>Search Events</h2>
+<form action="/event" method="GET">
+    <div>
+            <label>title</label>
+            <input type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+    <div>
+            <label>sport</label>
+            <input type="sport" name="sport" value="<%= searchOptions.sport %>">          
+    </div>
+<button type="submit">Search</button>
+</form>
+<br>
+<div>
+    <% event.forEach(event => { %>
+        <div><%= event.title %></div>
+    <% }) %> 
+</div>
