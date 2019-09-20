@@ -36,7 +36,7 @@ h3, h4, h5 {
   overflow: hidden; }
 
  .validate {
-   color: black
+   color: black !important
  } 
 
 .event-mark {
@@ -67,7 +67,7 @@ h3, h4, h5 {
   padding: 0 5px 0 5px; }
 
 .addForm input {
-  color: black; }
+  color: black !important; }
 
 .addForm .row {
   padding-left: 0.75rem;
@@ -281,3 +281,10 @@ h3, h4, h5 {
   .content-wrapper .container {
     padding-left: 0;
     padding-right: 0; } }
+
+
+//PROFILE VIEW
+.about-me-section {
+  background-color: #39a8e4 !important;
+  height: 43vh !important;
+}
