@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const {model, Schema} = require('mongoose')
 
 const eventSchema = new Schema(
@@ -9,12 +11,13 @@ const eventSchema = new Schema(
       sport: {
         type: String,
         enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
-    }
-      // location: {
-      //     ref: ,
-      //     type: Schema.Types.ObjectId
-      // }
-    },
+      },
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+      }
+  },  
   {
     timestamps: {
         createdAt: 'createdAt',
@@ -23,4 +26,6 @@ const eventSchema = new Schema(
   }
 )
 
-module.exports = model('Event', eventSchema)
+const Event = mongoose.model('Event', eventSchema); 
+
+module.exports = Event

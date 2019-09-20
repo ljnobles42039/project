@@ -19,13 +19,24 @@ require('./config/passport')(passport);
 
 //DB config
 const db = require('./config/keys').MongoURI //8 - created config file or can use an .env
-
-//Connect ot Mongo
-mongoose.connect(db, {
+mongoose
+  .connect(process.env.DB || "mongodb://localhost/findMyRun", {
     useNewUrlParser: true
-  }) //db is created  //9
-  .then(() => console.log(('MongoDB Connected....'))) //10
-  .catch(err => consoloe.log(err)) //11 now to users models
+  })
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });
+// //Connect ot Mongo
+// mongoose.connect(db, {
+//     useNewUrlParser: true
+//   }) //db is created  //9
+//   .then(() => console.log(('MongoDB Connected....'))) //10
+//   .catch(err => consoloe.log(err)) //11 now to users models
 
 // EJS
 app.use(expressLayouts)
@@ -75,12 +86,12 @@ app.use(function (req, res, next) {
 // Routes
 const index = require("./routes/index");
 const users = require("./routes/users");
-// const profile = require("./routes/profile");
-const property = require("./routes/property");
+const event = require("./routes/events")
 app.use("/", index);
 app.use("/users", users);
-// app.use("/profile", profile);
- app.use("/properties", property);
+app.use("/event", event)
+
+
 
 const PORT = process.env.PORT || 3000;
 

@@ -35,8 +35,14 @@ h3, h4, h5 {
   padding-right: 15%;
   overflow: hidden; }
 
+<<<<<<< Updated upstream
  .validate {
    color: black !important
+=======
+ .validates {
+   color: black !important;
+   background-color: #4b6289 !important;
+>>>>>>> Stashed changes
  } 
 
 .event-mark {
@@ -75,7 +81,7 @@ h3, h4, h5 {
   margin-bottom: 0; }
 
 .addForm h4 {
-  color: #fff;
+  color: black;
   margin-bottom: 1rem; }
 
 .addEventButtons {

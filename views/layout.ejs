@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <% if (locals.isLogin){ %>
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
       aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,12 @@
         <li class="nav-item"><a class="nav-link" href="/dashboard">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/profile/edit">Edit profile</a></li>
         <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="/event">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="/event/new">Add/Edit Events</a></li>
         <li class="nav-item"><a class="nav-link btn btn-secondary logout" href="/users/logout">Logout</a></li>
       </ul>
     </div>
-  </nav><% } %>
+  </nav>
 
   <div> <%- body %> </div>
 

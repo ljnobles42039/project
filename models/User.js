@@ -30,15 +30,15 @@ const UserSchema = new mongoose.Schema({ //2 Crete Schema
     description: String,
     sport1: {
         type: String,
-        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tennis', 'Football']
     },
     sport2: {
         type: String,
-        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tennis', 'Football']
     },
     sport3: {
         type: String,
-        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tenis', 'Futball']
+        enum: ['Soccer', 'Basketball', 'Volleyball', 'Tennis', 'Football']
     }
 });
 
