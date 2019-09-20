@@ -3,11 +3,14 @@ const router = express.Router();
 const Event = require("../models/Event");
 const User = require("../models/User")
 const uploader = require("../helpers/multer");
-
+const {
+  ensureAuthenticated,
+  forwardAuthenticated
+} = require('../config/auth');
 
 
 //All events
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
   let query = Event.find()
   if (req.query.title != null && req.query.title != '') {
     query = query.regex('title', new RegExp(req.query.title, 'i'))
@@ -29,7 +32,7 @@ router.get('/', async (req, res) => {
 
 
 //Add new events
-router.get('/new', async (req, res) => {
+router.get('/new', ensureAuthenticated, async (req, res) => {
   try {
     const users = await User.find({})
     const event = new Event()
@@ -39,7 +42,7 @@ router.get('/new', async (req, res) => {
     })
   } catch {
     res.redirect('event')
-  }  
+  }
 });
 
 //Create Author Route
@@ -57,7 +60,8 @@ router.post('/', async (req, res) => {
     const newEvent = await event.save()
     //res.redirect(`event/${newEvent.id}`)
     res.redirect(`event/index`)
-  } catch { err => console.log(err)
+  } catch {
+    err => console.log(err)
     res.redirect('event')
 
   }
