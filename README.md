@@ -21,8 +21,8 @@ Quick log in
 
  https://Shrouded-depths-36957.herokuapp.com
 
-Log in - ljnobles@mail.com	
-Password - 123456
+Log in - ironhack@ironhack.com  
+Password - 12345678
 
 
 Acknowledgments
