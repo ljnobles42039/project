@@ -26,10 +26,12 @@ router.get('/profile', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
+
 router.post('/profile/photo', uploadCloud.single('img'), async (req, res) => {
-  const {url: img} = req.file
-  const changeImage = await User.findByIdAndUpdate(req.user.id, {
-    img
+  console.log(req.file)
+  const {url} = req.file
+  await User.findByIdAndUpdate(req.user.id, {
+    img: url
   })
   res.redirect('/profile')
 })
