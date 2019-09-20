@@ -1,0 +1,43 @@
+
+
+
+<div>
+        <label>Title</label>
+        <input type="text" name="title" value="<%= event.title %>">
+      </div>
+      <div>
+        <label>User</label>
+        <select name="user">
+        <% users.forEach(user => { %>
+          <% if (user.id === event.user) { %>
+            <option selected label="<%= user.name %>" value="<%= user.id %>">
+          <% } else { %>
+            <option label="<%= user.name %>" value="<%= user.id %>">
+          <% } %>
+        <% }) %>
+        </select>
+      </div>
+      <div>
+        <label>Sport</label>
+        <select name="sport" id="sport">
+            <option value="<%= event.sport%>" selected="selected"> -- choose one --
+            <option>Soccer
+            <option>Basketball
+            <option>Volleyball
+            <option>Tennis
+            <option>Football
+        </select>
+      </div>
+      <div>
+        <label>Event Date</label>
+        <input type="date" name="date"
+              value="<%= event.date == null ? '' : event.date.toISOString().split('T')[0] %>">
+      </div>
+      <div>
+        <label>Event Time</label>
+        <input type="time" name="time" value="<%= event.time %>">
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea name="description"><%= event.description %></textarea>
+      </div>
