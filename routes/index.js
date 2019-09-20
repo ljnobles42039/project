@@ -3,6 +3,8 @@
 //These express,router are used to signify that we are going to use the express router
 const express = require('express');
 const router = express.Router();
+const uploadCloud = require('../config/cloudinary')
+const User = require('../models/User');
 const {
   ensureAuthenticated,
   forwardAuthenticated
@@ -24,9 +26,32 @@ router.get('/profile', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
+router.post('/profile/photo', uploadCloud.single('img'), async (req, res) => {
+  const {url: img} = req.file
+  const changeImage = await User.findByIdAndUpdate(req.user.id, {
+    img
+  })
+  res.redirect('/profile')
+})
 
 //Edit profile
-router.get('/edit/profile'), ensureAuthenticated, (req, res) => res.render('/edit-profile')
-router.post('edit/profile:id')
+router.get('/profile/edit', ensureAuthenticated, (req, res) => res.render('edit-profile', {
+  user: req.user
+}))
+router.post('/profile/edit', async (req, res) => {
+  const {
+    name,
+    email,
+    description
+
+  } = req.body
+  const editProfile = await User.findByIdAndUpdate(req.user.id, {
+    name,
+    email,
+    description
+
+  })
+  res.redirect('/profile')
+})
 
 module.exports = router;
