@@ -1,19 +1,24 @@
-
-<h2>Search Events</h2>
-<form action="/event" method="GET">
-    <div>
-            <label>title</label>
-            <input type="text" name="title" value="<%= searchOptions.title %>">
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h2>Search Events</h2>
+            <form action="/event" method="GET">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" value="<%= searchOptions.title %>">
+                </div>
+                <div class="form-group">
+                    <label for="sport">Sport</label>
+                    <input type="sport" name="sport" class="form-control" value="<%= searchOptions.sport %>">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </form>
+            <br>
+            <div>
+                <% event.forEach(event => { %>
+                <div><%= event.title %></div>
+                <% }) %>
+            </div>
+        </div>
     </div>
-    <div>
-            <label>sport</label>
-            <input type="sport" name="sport" value="<%= searchOptions.sport %>">          
-    </div>
-<button type="submit">Search</button>
-</form>
-<br>
-<div>
-    <% event.forEach(event => { %>
-        <div><%= event.title %></div>
-    <% }) %> 
 </div>
