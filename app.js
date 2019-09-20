@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
-const favicon = require("serve-favicon");
 const logger = require("morgan");
 const path = require("path");
 
@@ -42,7 +41,6 @@ mongoose
 app.use(expressLayouts)
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // Express body parser
 app.use(express.urlencoded({

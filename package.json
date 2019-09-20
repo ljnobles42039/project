@@ -19,7 +19,6 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.16.2",
-    "favicon": "0.0.2",
     "logger": "0.0.1",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
@@ -28,8 +27,7 @@
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7",
-    "serve-favicon": "^2.5.0"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
